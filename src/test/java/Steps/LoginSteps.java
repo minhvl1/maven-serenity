@@ -1,16 +1,20 @@
 package Steps;
 
 import commons.BaseTest;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import net.serenitybdd.screenplay.Actor;
+
 
 
 @RunWith(SerenityRunner.class)
@@ -39,5 +43,12 @@ public class LoginSteps {
     @Then("See result")
     public void seeResult() {
         String url =driver.getCurrentUrl();
+        System.out.println(url);
+    }
+
+    @And("URL contains {string}")
+    public void urlContains(String arg0) {
+        String url =driver.getCurrentUrl();
+        Assert.assertTrue(url.contains(arg0));
     }
 }
