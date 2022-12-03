@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Managed;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -14,11 +15,12 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityRunner.class)
 public class LoginSteps {
-
-    public WebDriver driver;
-    public LoginSteps(){
-    this.driver = BaseTest.openAndQuitBrowser();
-    }
+    @Managed(driver = "edge",options = "--headless")
+    WebDriver driver;
+//    public WebDriver driver;
+//    public LoginSteps(){
+//    this.driver = BaseTest.openAndQuitBrowser();
+//    }
 
     @Given("I go to google")
     public void iGoToGoogle() {
