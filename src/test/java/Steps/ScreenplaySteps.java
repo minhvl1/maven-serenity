@@ -49,4 +49,12 @@ public class ScreenplaySteps {
         System.out.println(driver.getCurrentUrl());
     }
 
+    @When("he input {string} email textbox")
+    public void heInputEmailTextbox(String arg0) {
+        toby.attemptsTo(
+                Enter.theValue(arg0)
+                        .into("//input[@id='userEmail']")
+                        .thenHit(Keys.RETURN)
+        );
+    }
 }

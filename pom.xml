@@ -136,9 +136,10 @@
         <groupId>net.serenity-bdd.maven.plugins</groupId>
         <artifactId>serenity-maven-plugin</artifactId>
         <version>${serenity.version}</version>
-        <configuration>
-            <tags>smoke</tags>
-        </configuration>
+<!--        <configuration>-->
+<!--            <tags>textbox=name</tags>-->
+<!--            <tags>textbox=email</tags>-->
+<!--        </configuration>-->
         <dependencies>
             <dependency>
                 <groupId>net.serenity-bdd</groupId>
