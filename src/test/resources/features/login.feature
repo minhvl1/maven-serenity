@@ -1,7 +1,7 @@
 Feature: search in google
 
   @smoke
-  Scenario Outline: google
+  Scenario Outline: search "<string>" google
     Given I go to google
     When search "<string>"
     When click search button
@@ -12,7 +12,7 @@ Feature: search in google
       | minh |
 
   @regress
-  Scenario Outline: google
+  Scenario Outline: search "<string>" google
     Given I go to google
     When search "<string>"
     When click search button
@@ -23,7 +23,7 @@ Feature: search in google
       | youtube |
 
   @facebook
-  Scenario Outline: google
+  Scenario Outline: search "<string>" google
     Given I go to google
     When search "<string>"
     When click search button
