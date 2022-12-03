@@ -15,17 +15,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
+
 @RunWith(SerenityRunner.class)
 public class ScreenplaySteps {
 
-    @Managed
-    public WebDriver driver;
-    public ScreenplaySteps(){
+    @Managed(driver = "firefox",options = "--headless")
+    WebDriver driver;
 
-        this.driver = BaseTest.openAndQuitBrowser();
-    }
+//    @Managed(driver = "chrome", options = "--headless")
+//    WebDriver driver;
+
+//    @Managed(driver = "edge",options = "--headless")
+//    WebDriver driver;
+
     @CastMember(name = "Toby")
     Actor toby;
+
 
     @Given("Toby I go to demo qa url")
     public void tobyIGoToDemoQaUrl() {

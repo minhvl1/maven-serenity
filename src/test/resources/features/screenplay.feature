@@ -13,3 +13,4 @@ Feature: screen play demo
     Given Toby I go to demo qa url
     When he input "Duy tan" email textbox
     Then he See result after input textbox
+
