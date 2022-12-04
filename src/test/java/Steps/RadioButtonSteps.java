@@ -43,11 +43,6 @@ public class RadioButtonSteps {
 //                Ensure.that(driver.findElement(By.xpath("//p[@class='mt-3']")).getText())
 //                        .contains(arg0)
 //        );
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         System.out.println("result"+driver.findElement(By.xpath("//p[@class='mt-3']")).getText());
     }
 }
