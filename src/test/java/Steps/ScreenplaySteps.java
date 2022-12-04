@@ -19,7 +19,7 @@ import org.openqa.selenium.WebDriver;
 @RunWith(SerenityRunner.class)
 public class ScreenplaySteps {
 
-    @Managed(driver = "firefox",options = "--headless")
+    @Managed(driver = "edge",options = "--headless")
     WebDriver driver;
 
 //    @Managed(driver = "chrome", options = "--headless")
