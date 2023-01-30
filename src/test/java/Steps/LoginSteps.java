@@ -18,10 +18,10 @@ public class LoginSteps {
 //    @Managed(driver = "edge",options = "--headless")
 //    WebDriver driver;
     @Managed
-    public WebDriver driver;
-    public LoginSteps(){
-    this.driver = BaseTest.openAndQuitBrowser();
-    }
+    WebDriver driver;
+//    public LoginSteps(){
+//    this.driver = BaseTest.openAndQuitBrowser();
+//    }
 
     @Given("I go to google")
     public void iGoToGoogle() {

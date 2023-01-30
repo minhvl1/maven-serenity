@@ -19,10 +19,10 @@ public class DemoQaSteps {
 //    @Managed(driver = "edge",options = "--headless")
 //    WebDriver driver;
     @Managed
-    public WebDriver driver;
-    public DemoQaSteps(){
-        this.driver = BaseTest.openAndQuitBrowser();
-    }
+    WebDriver driver;
+//    public DemoQaSteps(){
+//        this.driver = BaseTest.openAndQuitBrowser();
+//    }
     @Given("I go to demo qa url")
     public void iGoToDemoQaUrl() {
         driver.get("https://demoqa.com/text-box");

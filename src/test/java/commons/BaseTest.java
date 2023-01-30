@@ -1,6 +1,7 @@
 package commons;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 
 public class BaseTest {
+    @Managed
     private static WebDriver driver;
 
     public synchronized static WebDriver openAndQuitBrowser() {
