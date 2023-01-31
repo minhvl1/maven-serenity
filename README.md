@@ -10,6 +10,9 @@
 
 ## Run Testcases
 1. Config browser in serenity.properties
+
+![image](https://user-images.githubusercontent.com/67543695/215641544-37012d9d-ba31-471e-aa04-21163a134291.png)
+
 2. Run by command line: disable all properties in serenity.properties
    
    - Default 
