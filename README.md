@@ -21,3 +21,7 @@
      - `mvn clean verify -D"cucumber.filter.tags=@screenplay or @sit"`
    - Run with specific browser: chrome
      - `mvn clean verify -D"webdriver.driver=chrome" -D"headless.mode = true"`
+    
+3. Run by Jenkins
+
+![image](https://user-images.githubusercontent.com/67543695/215655547-24998b16-d919-4a98-8fb1-113c4953b1db.png)
