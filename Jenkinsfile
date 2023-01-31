@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean verify  -D"webdriver.driver=firefox"
+                sh 'mvn clean verify  -D"webdriver.driver=firefox"'
 
             }
 
