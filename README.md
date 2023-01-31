@@ -6,7 +6,7 @@
 
 ![image](https://user-images.githubusercontent.com/67543695/215646713-3835c234-88fc-4fed-8c08-a65d035a96f4.png)
 
-![image](https://user-images.githubusercontent.com/67543695/205450533-70b22ec0-1dc7-4714-a840-0b54f3c4b652.png)
+![image](https://user-images.githubusercontent.com/67543695/215647182-3bd601ab-c33f-487d-8dcc-7c268c3e3055.png)
 
 ## Run Testcases
 1. Config browser in serenity.properties
