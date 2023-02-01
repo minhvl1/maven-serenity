@@ -21,11 +21,11 @@ pipeline {
             }
         }
         stage('Publish report to MS team'){
-            steps {
+             steps {
                 office365ConnectorSend webhookUrl: 'https://cmcglobalcompany.webhook.office.com/webhookb2/d71b4385-2978-475a-849d-1f7fb4786638@f89c1178-4c5d-43b5-9f3b-d21c3bec61b5/IncomingWebhook/df5cace06cbe44b8a2db7619802ffe8b/0ef5503d-db25-40ca-bf9d-3c80b57ebfac',
-                    message: 'See serenity report here: [Report](https://minhvl1.github.io/maven-serenity)',
-                    status: 'Success',
-                    color: '#ff00ff'
+                message: 'See serenity Report here [report](http://192.168.66.116:2111/job/1/thucydides/)',
+                status: 'Success',
+                color: '#0000FF'
             }
         }
     }
