@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Generate Report'){
             steps {
-                archiveArtifacts (includes: 'pkg/*.gem')
+                archive (includes: 'pkg/*.gem')
                 publishHTML([
                 allowMissing: false,
                 alwaysLinkToLastBuild: true,
