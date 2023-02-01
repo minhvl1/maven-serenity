@@ -25,3 +25,5 @@
 3. Run by Jenkins
 
 ![image](https://user-images.githubusercontent.com/67543695/215655547-24998b16-d919-4a98-8fb1-113c4953b1db.png)
+
+![image](https://user-images.githubusercontent.com/67543695/215983258-bcadea19-14e1-4a4d-8aeb-fc9a967a9ccd.png)
