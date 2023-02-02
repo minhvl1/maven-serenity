@@ -50,7 +50,7 @@ pipeline {
                 color: "${currentBuild.currentResult} == 'SUCCESS' ? '#9933ff' : '#ff9900'",
               factDefinitions:[
                     [ name: "Commit Message", template: "${GIT_COMMIT_MSG}"],
-                    [ name: "Pipeline Duration", template: ""Maven Serenity-#"+currentBuild.number"]
+                    [ name: "Pipeline Duration", template: "'Maven Serenity-#'+currentBuild.number"]
                 ]
             }
         }
