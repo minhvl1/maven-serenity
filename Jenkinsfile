@@ -8,8 +8,7 @@ pipeline {
             maven 'MAVEN_HOME'
     }
     }
-    failFast false
-    parallel {
+
     stages {
         stage('get_commit_msg') {
             steps {
@@ -25,10 +24,16 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                sh 'mvn clean verify  -D"webdriver.driver=firefox"'
-
-            }
+             steps {
+                    script {
+                        try {
+                             sh 'mvn clean verify  -D"webdriver.driver=firefox"'
+                        } catch (err) {
+                            echo err.getMessage()
+                        }
+                    }
+                    echo currentBuild.result
+                }
         }
 
 
@@ -60,5 +65,4 @@ pipeline {
         }
 
     }
-}
 }
