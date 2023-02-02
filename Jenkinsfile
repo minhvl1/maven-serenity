@@ -42,7 +42,6 @@ pipeline {
                 status: 'Success',
                 color: "${currentBuild.currentResult} == 'SUCCESS' ? '#9933ff' : '#ff9900'",
               factDefinitions:[
-                    [ name: "Commit Message", template: "${commit_message}"],
                     [ name: "Pipeline Duration", template: "${currentBuild.number}"]
                 ]
             }
