@@ -9,6 +9,13 @@ pipeline {
     }
     }
     stages {
+        stage('get_commit_msg') {
+            steps {
+                script {
+                    env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+                }
+            }
+        }
 
         stage('Build') {
             steps {
@@ -42,7 +49,8 @@ pipeline {
                 status: 'Success',
                 color: "${currentBuild.currentResult} == 'SUCCESS' ? '#9933ff' : '#ff9900'",
               factDefinitions:[
-                    [ name: "Pipeline Duration", template: "${currentBuild.number}"]
+                    [ name: "Commit Message", template: "${GIT_COMMIT_MSG}"],
+                    [ name: "Pipeline Duration", template: ""Maven Serenity-#"+currentBuild.number"]
                 ]
             }
         }
