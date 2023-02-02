@@ -25,15 +25,8 @@ pipeline {
         }
         stage('Test') {
              steps {
-                    script {
-                        try {
-                             sh 'mvn clean verify  -D"webdriver.driver=firefox"'
-                        } catch (err) {
-                            echo err.getMessage()
-                        }
-                    }
-                    echo currentBuild.result
-                }
+                 sh 'mvn clean verify  -D"webdriver.driver=firefox"'
+            }
         }
 
 
@@ -59,10 +52,15 @@ pipeline {
                 color: "${currentBuild.currentResult} == 'SUCCESS' ? '#0099ff' : '#ff9900'",
               factDefinitions:[
                     [ name: "Commit Message", template: "${GIT_COMMIT_MSG}"],
-                    [ name: "Pipeline Duration", template: "Maven Serenity-#${currentBuild.number}"]
+                    [ name: "Pipeline Duration", template: "Maven Serenity #${currentBuild.number}"]
                 ]
             }
         }
 
+    }
+    post{
+        always{
+         failOnError: false
+       }
     }
 }
