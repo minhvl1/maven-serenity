@@ -41,10 +41,7 @@ pipeline {
                 message: 'See serenity Report here [report](http://192.168.66.116:2111/job/serenity/HTML_20Report/)',
                 status: 'Success',
                 color: "${currentBuild.currentResult} == 'SUCCESS' ? '00ff00' : 'ff0000'",
-                factDefinitions:[
-                        [ name: "Commit Message", template: "${commit_message}"],
-                        [ name: "Pipeline Duration", template: "${currentBuild.durationString.minus(' and counting')}"]
-                    ]
+
             }
         }
     }
