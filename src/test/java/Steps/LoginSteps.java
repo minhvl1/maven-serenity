@@ -39,7 +39,7 @@ private static final Logger logger = Logger.getLogger(LoginSteps.class);
     @When("click search button")
     public void clickSearchButton() {
 //        logger.info("===Click search button===");
-        driver.findElement(By.xpath("//input[@name='q1']")).sendKeys(Keys.RETURN);
+        driver.findElement(By.xpath("//input[@name='q']")).sendKeys(Keys.RETURN);
     }
 
     @Then("See result")
