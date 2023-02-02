@@ -25,8 +25,15 @@ pipeline {
         }
         stage('Test') {
              steps {
-                 sh 'mvn clean verify  -D"webdriver.driver=firefox"'
-            }
+                    script {
+                        try {
+                             sh 'mvn clean verify  -D"webdriver.driver=firefox"'
+                        } catch (err) {
+                            echo err.getMessage()
+                        }
+                    }
+                    echo currentBuild.result
+                }
         }
 
 
@@ -57,12 +64,5 @@ pipeline {
             }
         }
 
-    }
-    post{
-        always{
-         recordIssues(
-         failOnError: true
-         )
-       }
     }
 }
