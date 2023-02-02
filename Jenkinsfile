@@ -60,7 +60,9 @@ pipeline {
     }
     post{
         always{
+         recordIssues(
          failOnError: false
+         )
        }
     }
 }
