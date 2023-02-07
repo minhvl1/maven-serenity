@@ -27,7 +27,7 @@ pipeline {
              steps {
                     script {
                         try {
-                             sh 'mvn clean verify  -D"webdriver.driver=${browser}"'
+                             sh 'mvn clean verify  -D"webdriver.driver=${browser}" -D"headless.mode = ${headless}"'
                         } catch (err) {
                             echo err.getMessage()
                         }
