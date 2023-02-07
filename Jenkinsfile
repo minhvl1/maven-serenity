@@ -27,7 +27,7 @@ pipeline {
              steps {
                     script {
                         try {
-                             sh 'mvn clean verify  -D"webdriver.driver=firefox"'
+                             sh 'mvn clean verify  -D"webdriver.driver=${browser}"'
                         } catch (err) {
                             echo err.getMessage()
                         }
