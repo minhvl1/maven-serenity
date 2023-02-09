@@ -13,5 +13,5 @@ Feature: screen play demo
     Then  See result contain <radio>
     Examples:
       | radio |
-    |   "Impressive"    |
-    |     "Yes"|
+      |   "Impressive"    |
+      |     "Yes"|
