@@ -1,3 +1,4 @@
-E:\maven_serenity\src\test\java\runners\Runners.java
-E:\maven_serenity\src\test\java\commons\BaseTest.java
-E:\maven_serenity\src\test\java\Steps\LoginSteps.java
+E:\github\maven-serenity\src\test\java\Steps\DemoQaSteps.java
+E:\github\maven-serenity\src\test\java\runners\Runners.java
+E:\github\maven-serenity\src\test\java\Steps\ApiSteps.java
+E:\github\maven-serenity\src\test\java\Steps\LoginSteps.java

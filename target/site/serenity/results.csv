@@ -1,2 +1,6 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"search in google","Google","SUCCESS","2022-12-02T16:35:00.8978666+07:00[Asia/Bangkok]","0.0","4.42"
+"Demo API","test get api","SUCCESS","2023-05-12T17:36:39.5908092+07:00[Asia/Bangkok]","0.0","3.15"
+"Demo API","test post api","SUCCESS","2023-05-12T17:36:42.7475049+07:00[Asia/Bangkok]","0.0","1.01"
+"screen play demo","DEMO QA","ERROR","2023-05-12T17:36:43.7716806+07:00[Asia/Bangkok]","0.0","2.65"
+"screen play demo","Radio button","ERROR","2023-05-12T17:36:46.4802176+07:00[Asia/Bangkok]","0.0","1.32"
+"search in google","search ""<string>"" google","ERROR","2023-05-12T17:36:49.1157353+07:00[Asia/Bangkok]","0.0","1.3"

@@ -1,4 +1,4 @@
+Steps\ApiSteps.class
 Steps\LoginSteps.class
-commons\BaseTest$BrowserCleanup.class
-commons\BaseTest.class
+Steps\DemoQaSteps.class
 runners\Runners.class
