@@ -1,20 +1,18 @@
 package Steps;
 
+import commons.BaseTest;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(SerenityRunner.class)
-public class LoginSteps {
+public class LoginSteps{
 //    @Managed(driver = "edge",options = "--headless")
 //    WebDriver driver;
 private static final Logger logger = Logger.getLogger(LoginSteps.class);
@@ -33,13 +31,13 @@ private static final Logger logger = Logger.getLogger(LoginSteps.class);
     @When("search {string}")
     public void search(String arg0) {
 //        logger.info("===Search keyword===");
-        driver.findElement(By.xpath("//input[@name='q']")).sendKeys(arg0);
+        driver.findElement(By.xpath("//textarea[@class='gLFyf']")).sendKeys(arg0);
     }
 
     @When("click search button")
     public void clickSearchButton() {
 //        logger.info("===Click search button===");
-        driver.findElement(By.xpath("//input[@name='q']")).sendKeys(Keys.RETURN);
+        driver.findElement(By.xpath("//textarea[@class='gLFyf']")).sendKeys(Keys.RETURN);
     }
 
     @Then("See result")

@@ -1,23 +1,22 @@
 package Steps;
 
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.Assert;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-@RunWith(SerenityRunner.class)
+
 public class DemoQaSteps {
 
 
 //    @Managed(driver = "edge",options = "--headless")
 //    WebDriver driver;
-    @Managed
+   @Managed
     WebDriver driver;
 //    public DemoQaSteps(){
 //        this.driver = BaseTest.openAndQuitBrowser();

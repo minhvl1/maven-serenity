@@ -23,6 +23,7 @@ public class ApiSteps {
     Response getResponse;
     List<String> postListResponse;
     Response postResponse;
+    Response response;
 
     @Given("send get method with id={string}")
     public void sendGetMethodWithId(String arg0) {
@@ -33,7 +34,7 @@ public class ApiSteps {
 //        String responseBody = getResponse.getBody().asString();
 //        getListResponse = new ArrayList<String>(Arrays.asList(responseBody.split(",")));
 
-        getResponse = SerenityRest
+        response = SerenityRest
                 .given()
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
@@ -75,7 +76,7 @@ public class ApiSteps {
         requestParams.put("name", "morpheus");
         requestParams.put("job", "leader");
 
-        postResponse = SerenityRest
+        response = SerenityRest
                 .given()
                 .contentType("application/json")
                 .header("Content-Type", "application/json")
