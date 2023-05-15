@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features/"},
         glue = {"Steps"},
         monochrome = true
+        ,tags = "@soap"
 )
 public class Runners {
 
