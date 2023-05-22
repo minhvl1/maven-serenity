@@ -6,16 +6,19 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Managed;
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps{
+    private static final Logger logger = LogManager.getLogger(LoginSteps.class);
 //    @Managed(driver = "edge",options = "--headless")
 //    WebDriver driver;
-private static final Logger logger = Logger.getLogger(LoginSteps.class);
+
     @Managed
     WebDriver driver;
 //    public LoginSteps(){

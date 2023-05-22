@@ -1,5 +1,6 @@
 package Steps;
 
+import constants.FrameworkConstants;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,6 +9,8 @@ import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 
@@ -21,6 +24,7 @@ import static io.restassured.RestAssured.given;
 import static net.serenitybdd.rest.SerenityRest.then;
 
 public class SoapSteps {
+    private static final Logger logger = LogManager.getLogger(SoapSteps.class);
     Response soapResponse;
     @Given("Send restassured request")
     public void sendRestassuredRequest() throws IOException {
@@ -44,7 +48,7 @@ public class SoapSteps {
 //        System.out.println(a);
 //        System.out.println(a.size());
         String NumberToWordsResult= xmlPath.getString("NumberToWordsResponse");
-        System.out.println("NumberToWordsResult:"+NumberToWordsResult);
+        logger.info("NumberToWordsResult:"+NumberToWordsResult);
     }
 
     @Given("Send SerenityRest request")
@@ -65,7 +69,7 @@ public class SoapSteps {
         then().statusCode(200);
         XmlPath xmlPath = new XmlPath(soapResponse.asString());
         String NumberToWordsResult= xmlPath.getString("NumberToWordsResponse");
-        System.out.println("NumberToWordsResult:"+NumberToWordsResult);
+        logger.info("NumberToWordsResult:"+NumberToWordsResult);
         Assert.assertEquals(NumberToWordsResult,"five hundred ");
     }
 
@@ -73,7 +77,17 @@ public class SoapSteps {
     public void realXmlFileAndReplace() throws IOException {
         FileInputStream requestBody = new FileInputStream("src/test/resources/data/test1.xml");
         String a = IOUtils.toString(requestBody,"UTF-8");
-        a=a.replace("${ubiNum}","100000");
-        System.out.println(a);
+        a=a.replace("${ubiNum}","90000");
+        logger.info(a);
+
+        soapResponse = SerenityRest
+                .given()
+                    .contentType("application/json")
+                    .header("Content-Type","text/xml; charset=utf-8")
+                    .body(a)
+                .when().post("https://www.dataaccess.com/webservicesserver/NumberConversion.wso");
+        SerenityRest.restAssuredThat(response -> response.statusCode(200));
+        soapResponse.prettyPrint();
+        logger.log(FrameworkConstants.NOTICE,soapResponse.getBody().asString());
     }
 }

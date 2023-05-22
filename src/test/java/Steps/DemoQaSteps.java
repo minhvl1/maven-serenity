@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Managed;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +15,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DemoQaSteps {
 
-
+    private static final Logger logger = LogManager.getLogger(DemoQaSteps.class);
 //    @Managed(driver = "edge",options = "--headless")
 //    WebDriver driver;
    @Managed
