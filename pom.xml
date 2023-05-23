@@ -17,6 +17,7 @@
         <junit.version>5.9.3</junit.version>
         <rest.assured.version>5.3.0</rest.assured.version>
         <log4j.version>2.20.0</log4j.version>
+        <env>testing</env>
     </properties>
 
     <dependencies>
@@ -211,5 +212,11 @@
     </plugin>
 
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/test/resources-${env}</directory>
+            </resource>
+        </resources>
     </build>
 </project>

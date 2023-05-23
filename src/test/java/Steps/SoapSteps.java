@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import static constants.FrameworkConstants.*;
 import static io.restassured.RestAssured.given;
 import static net.serenitybdd.rest.SerenityRest.then;
 
@@ -29,15 +30,15 @@ public class SoapSteps {
     @Given("Send restassured request")
     public void sendRestassuredRequest() throws IOException {
         System.out.println("Send restassured request");
-        FileInputStream requestBody = new FileInputStream("src/test/resources/data/test.xml");
-        RestAssured.baseURI="https://www.dataaccess.com";
+        FileInputStream requestBody = new FileInputStream(TEST_XML_PATH);
+        RestAssured.baseURI=DATAACCESS_BASE_URL;
         Response response =
                 given()
                         .header("Content-Type","text/xml; charset=utf-8")
                         .and()
                         .body(IOUtils.toString(requestBody,"UTF-8"))
                         .when()
-                        .post("/webservicesserver/NumberConversion.wso")
+                        .post(DATAACCESS_WEBSERVICESSERVER_PATH_URL)
                         .then()
                         .statusCode(200)
                         .and()
@@ -54,7 +55,7 @@ public class SoapSteps {
     @Given("Send SerenityRest request")
     public void sendSerenityRestRequest() throws IOException {
         System.out.println("Send SerenityRest request");
-        FileInputStream requestBody = new FileInputStream("src/test/resources/data/test.xml");
+        FileInputStream requestBody = new FileInputStream(TEST_XML_PATH);
         soapResponse = SerenityRest
                 .given()
                 .contentType("application/json")
@@ -75,7 +76,7 @@ public class SoapSteps {
 
     @Given("real xml file and replace")
     public void realXmlFileAndReplace() throws IOException {
-        FileInputStream requestBody = new FileInputStream("src/test/resources/data/test1.xml");
+        FileInputStream requestBody = new FileInputStream(TEST1_XML_PATH);
         String a = IOUtils.toString(requestBody,"UTF-8");
         a=a.replace("${ubiNum}","90000");
         logger.info(a);
@@ -88,6 +89,11 @@ public class SoapSteps {
                 .when().post("https://www.dataaccess.com/webservicesserver/NumberConversion.wso");
         SerenityRest.restAssuredThat(response -> response.statusCode(200));
         soapResponse.prettyPrint();
-        logger.log(FrameworkConstants.NOTICE,soapResponse.getBody().asString());
+        logger.log(NOTICE,soapResponse.getBody().asString());
+    }
+
+    @Given("Test config")
+    public void testConfig() {
+        logger.info("Current Enviroment:" +ENVIRONMENT);
     }
 }

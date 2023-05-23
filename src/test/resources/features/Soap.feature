@@ -1,5 +1,10 @@
 @soap
 Feature:  Soap API
+
+  @TestConfig
+  Scenario: Display environment name
+    Given Test config
+
   @soaprestassured
   Scenario: SOAP API with restassured
     Given Send restassured request
@@ -14,3 +19,6 @@ Feature:  Soap API
     @xml
     Scenario: xml
       Given real xml file and replace
+
+
+
