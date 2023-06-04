@@ -1,35 +1,32 @@
 package Steps;
 
-import constants.FrameworkConstants;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ExecutedStepDescription;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hamcrest.Matchers;
 import org.junit.Assert;
+import runners.ListenerHook;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 import static constants.FrameworkConstants.*;
 import static io.restassured.RestAssured.given;
 import static net.serenitybdd.rest.SerenityRest.then;
 
-public class SoapSteps {
+public class SoapSteps extends ListenerHook {
     private static final Logger logger = LogManager.getLogger(SoapSteps.class);
     Response soapResponse;
     @Given("Send restassured request")
     public void sendRestassuredRequest() throws IOException {
-        System.out.println("Send restassured request");
+//        testStarted("Send restassured request");
         FileInputStream requestBody = new FileInputStream(TEST_XML_PATH);
         RestAssured.baseURI=DATAACCESS_BASE_URL;
         Response response =
@@ -50,11 +47,12 @@ public class SoapSteps {
 //        System.out.println(a.size());
         String NumberToWordsResult= xmlPath.getString("NumberToWordsResponse");
         logger.info("NumberToWordsResult:"+NumberToWordsResult);
+//        stepFinished();
     }
 
     @Given("Send SerenityRest request")
     public void sendSerenityRestRequest() throws IOException {
-        System.out.println("Send SerenityRest request");
+//        testStarted("Send Serenity Rest request");
         FileInputStream requestBody = new FileInputStream(TEST_XML_PATH);
         soapResponse = SerenityRest
                 .given()
@@ -94,6 +92,6 @@ public class SoapSteps {
 
     @Given("Test config")
     public void testConfig() {
-        logger.info("Current Enviroment:" +ENVIRONMENT);
+        logger.info("Current Enviroment:" + ENVIRONMENT);
     }
 }
